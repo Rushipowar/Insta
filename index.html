@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instagram Story Downloader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            color: #fff;
+            text-align: center;
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container #downloadButton{
+            padding: 10px 25px;
+            background-color: #fff;
+            border: 1px solid gray;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .container #downloadButton:active{
+            background-color: #dfdfdf;
+        }
+        .container #instagramUsername{
+            padding: 15px 15px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+        .container #message{
+            font-weight: 600;
+            font-size: 16px;
+            color: red;
+        }
+
+        @media (min-width: 700px) and (max-width: 1200px){
+            .container{
+                width: 100vw;
+            }
+            .container h1{
+                font-size: 35px;
+                margin-top: 200px;
+                margin-bottom: 50px;
+            }
+            .container #downloadButton{
+                padding: 15px 65px;
+            }
+            .container #instagramUsername{
+                padding: 25px 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Instagram Story Downloader</h1>
+        <input type="text" id="instagramUsername" placeholder="Enter Instagram username">
+        <button id="downloadButton">Download Story</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        document.getElementById("downloadButton").addEventListener("click", function() {
+            var username = document.getElementById("instagramUsername").value;
+            if (username) {
+                downloadStory(username);
+            } else {
+                document.getElementById("message").innerText = "Please enter an Instagram username.";
+            }
+        });
+
+        function downloadStory(username) {
+            // You would typically make an API request to Instagram here to fetch the story data.
+            // However, for educational purposes, we'll just simulate the process.
+
+            // Simulate fetching data (replace this with a real API request)
+            setTimeout(function() {
+                var storyUrl = "https://www.instagram.com/stories/" + username;
+                document.getElementById("message").innerHTML = `<a href="${storyUrl}" target="_blank">Download the story</a>`;
+            }, 2000); // Simulating a 2-second delay for fetching data.
+        }
+    </script>
+</body>
+</html>
